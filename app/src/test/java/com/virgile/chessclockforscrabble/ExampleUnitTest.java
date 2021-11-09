@@ -1,4 +1,4 @@
-package com.virgile.scrabbletools;
+package com.virgile.chessclockforscrabble;
 
 import org.junit.Test;
 

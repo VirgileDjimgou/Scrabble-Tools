@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Chess Clock For Scrabble"
 include ':app'
+include ':app:testmodule'

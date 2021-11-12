@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+//import androidx.appcompat.app.ApvpCompatActivity;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowInsets;
+import android.widget.Toast;
 
 import com.virgile.chessclockforscrabble.databinding.ActivityFullscreenBinding;
 
@@ -68,7 +70,7 @@ public class FullscreenActivity extends AppCompatActivity {
             if (actionBar != null) {
                 actionBar.show();
             }
-            mControlsView.setVisibility(View.VISIBLE);
+            // mControlsView.setVisibility(View.VISIBLE);
         }
     };
     private boolean mVisible;
@@ -152,12 +154,13 @@ public class FullscreenActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
-        mControlsView.setVisibility(View.GONE);
+        // mControlsView.setVisibility(View.GONE);
         mVisible = false;
 
         // Schedule a runnable to remove the status and navigation bar after a delay
         mHideHandler.removeCallbacks(mShowPart2Runnable);
         mHideHandler.postDelayed(mHidePart2Runnable, UI_ANIMATION_DELAY);
+        Toast.makeText(FullscreenActivity.this, "Hide function toggled", Toast.LENGTH_SHORT).show();
     }
 
     private void show() {
@@ -174,6 +177,8 @@ public class FullscreenActivity extends AppCompatActivity {
         // Schedule a runnable to display UI elements after a delay
         mHideHandler.removeCallbacks(mHidePart2Runnable);
         mHideHandler.postDelayed(mShowPart2Runnable, UI_ANIMATION_DELAY);
+        Toast.makeText(FullscreenActivity.this, " show function toggled ", Toast.LENGTH_SHORT).show();
+
     }
 
     /**

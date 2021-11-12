@@ -8,7 +8,7 @@
         android:id="@+id/activity_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:background="@color/colorBackground">
 
@@ -51,39 +51,37 @@
             android:textColor="@color/colorYellow"
             android:textSize="40sp" />
 
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
         <ImageView
             android:id="@+id/imageViewReset"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_below="@+id/textViewTime"
             android:layout_centerInParent="true"
-            android:layout_marginTop="30dp"
             android:src="@drawable/icon_reset"
             android:visibility="gone" />
+
 
         <ImageView
             android:id="@+id/imageViewStartStop"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_below="@+id/progressBarCircle"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
             android:src="@drawable/icon_start" />
 
-    </RelativeLayout>
+        </LinearLayout>
 
-    <ImageView
-        android:id="@+id/pause_start"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_centerInParent="true"
-        android:src="@drawable/icon_start" />
 
     <RelativeLayout
         android:id="@+id/second_player"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:background="@color/colorBackground">
 
@@ -135,15 +133,6 @@
             android:layout_marginTop="30dp"
             android:src="@drawable/icon_reset"
             android:visibility="gone" />
-
-        <ImageView
-            android:id="@+id/imageViewStartStop_2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/progressBarCircle_2"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/icon_start" />
 
     </RelativeLayout>
 

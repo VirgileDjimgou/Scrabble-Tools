@@ -18,7 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Build;
 import android.view.WindowInsets;
 
-import com.virgile.chessclockforscrabble.databinding.ActivityFullscreenBinding;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -36,9 +35,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView imageViewReset;
     private ImageView imageViewStartStop;
     private CountDownTimer countDownTimer;
-    private ActivityFullscreenBinding binding;
     private View mControlsView;
     private View mContentView;
+
+
+    //Declare a variable to hold CountDownTimer remaining time
+    private long timeRemaining = timeCountInMilliSeconds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imageViewReset = (ImageView) findViewById(R.id.imageViewReset);
         imageViewStartStop = (ImageView) findViewById(R.id.imageViewStartStop);
 
-        mContentView = (TextView) findViewById(R.id.fullscreen_content);
 
         // call full screen  methode  ...
         fullScreen();
@@ -150,7 +151,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // showing the reset icon
             imageViewReset.setVisibility(View.VISIBLE);
             // changing play icon to stop icon
-            imageViewStartStop.setImageResource(R.drawable.icon_stop);
+            imageViewStartStop.setImageResource(R.drawable.pausetimer);
             // making edit text not editable
             editTextMinute.setEnabled(false);
             // changing the timer status to started
@@ -195,6 +196,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     private void startCountDownTimer() {
 
+        timeCountInMilliSeconds = timeRemaining;
         countDownTimer = new CountDownTimer(timeCountInMilliSeconds, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -202,6 +204,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 textViewTime.setText(hmsTimeFormatter(millisUntilFinished));
 
                 progressBarCircle.setProgress((int) (millisUntilFinished / 1000));
+
+                // save remaining time  ...
+                timeRemaining = millisUntilFinished;
 
             }
 
@@ -223,6 +228,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }.start();
         countDownTimer.start();
+
     }
 
     /**
